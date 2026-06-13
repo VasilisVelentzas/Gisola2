@@ -79,7 +79,337 @@ _BOOT_CTX = None
 _SUMMARY  = None   # filled by getBootstrapping(), printed by gisolaBootstrap.py
 # filled by getBootstrapping(), consumed by renderSite()
 _BOOT_STATS = None
+# ---- GPU flag (set by gisolaBootstrap.py from config ComputeDevice) ----
+_USE_GPU = False
 # ------------------------------------------------------------------------
+
+# ========================================================================
+# GPU / CUDA support
+# ========================================================================
+try:
+    _CUDA_AVAILABLE = len(list(cuda.gpus)) > 0
+except Exception:
+    _CUDA_AVAILABLE = False
+
+if _CUDA_AVAILABLE:
+
+    @cuda.jit(device=True)
+    def _solve5(A, b, x):
+        """5×5 Gaussian elimination with partial pivoting (in-place on A, b)."""
+        for col in range(5):
+            max_val = math.fabs(A[col, col])
+            max_row = col
+            for row in range(col + 1, 5):
+                v = math.fabs(A[row, col])
+                if v > max_val:
+                    max_val = v
+                    max_row = row
+            if max_row != col:
+                for j in range(5):
+                    tmp = A[col, j]; A[col, j] = A[max_row, j]; A[max_row, j] = tmp
+                tmp = b[col]; b[col] = b[max_row]; b[max_row] = tmp
+            inv_piv = 1.0 / A[col, col]
+            for row in range(col + 1, 5):
+                f = A[row, col] * inv_piv
+                for j in range(col, 5):
+                    A[row, j] -= f * A[col, j]
+                b[row] -= f * b[col]
+        for row in range(4, -1, -1):
+            s = b[row]
+            for j in range(row + 1, 5):
+                s -= A[row, j] * x[j]
+            x[row] = s / A[row, row]
+
+    @cuda.jit
+    def _inversion_R_kernel(G, R, scale):
+        """R[k] = G[k]^T G[k] * scale  (one thread per source k)."""
+        k = cuda.grid(1)
+        if k >= G.shape[0]:
+            return
+        n_total = G.shape[1]
+        Rk = cuda.local.array((5, 5), dtype=float64)
+        for a in range(5):
+            for b in range(5):
+                Rk[a, b] = 0.0
+        for i in range(n_total):
+            for a in range(5):
+                ga = G[k, i, a]
+                for b in range(5):
+                    Rk[a, b] += ga * G[k, i, b]
+        for a in range(5):
+            for b in range(5):
+                R[k, a, b] = Rk[a, b] * scale
+
+    @cuda.jit
+    def _inversion_shifts_kernel(G, obs_data, R_arr, shifts_array,
+                                  best_vr, best_shift, best_mech, vr_mat,
+                                  scale, rr, MULTIP):
+        """Shift loop + linear solve for each source k (one thread per source)."""
+        k = cuda.grid(1)
+        if k >= G.shape[0]:
+            return
+        n_total   = G.shape[1]
+        n_stations = n_total // 1024
+        n_shifts  = shifts_array.shape[0]
+
+        R   = cuda.local.array((5, 5), dtype=float64)
+        g   = cuda.local.array(5,      dtype=float64)
+        a_k = cuda.local.array(5,      dtype=float64)
+        Rt  = cuda.local.array((5, 5), dtype=float64)
+        gt  = cuda.local.array(5,      dtype=float64)
+
+        for a in range(5):
+            for b in range(5):
+                R[a, b] = R_arr[k, a, b]
+
+        best_vr_k = -1.0
+        best_s_k  = shifts_array[0]
+
+        for si in range(n_shifts):
+            s = shifts_array[si]
+            for n in range(5):
+                g[n] = 0.0
+            for stat in range(n_stations):
+                base = stat * 1024
+                for t in range(1024):
+                    gf_idx = t - s
+                    if 0 <= gf_idx < 1024:
+                        d = obs_data[base + t]
+                        for n in range(5):
+                            g[n] += G[k, base + gf_idx, n] * d
+            for n in range(5):
+                g[n] *= scale
+            for a in range(5):
+                for b in range(5):
+                    Rt[a, b] = R[a, b]
+                gt[a] = g[a]
+            _solve5(Rt, gt, a_k)
+            sum1 = 0.0
+            for n in range(5):
+                sum1 += a_k[n] * g[n]
+            vr = ((sum1 / MULTIP) / rr) * 100.0
+            vr_mat[k, si] = vr
+            if vr > best_vr_k:
+                best_vr_k = vr
+                best_s_k  = s
+                for n in range(5):
+                    best_mech[k, n] = a_k[n]
+
+        best_vr[k]    = best_vr_k
+        best_shift[k] = best_s_k
+
+    @cuda.jit
+    def _bootstrap_R_batched_kernel(G, W_all, R, scale):
+        """One thread per (iter, source) pair — batched over all iterations."""
+        gid       = cuda.grid(1)
+        n_sources = G.shape[0]
+        n_iters   = W_all.shape[0]
+        if gid >= n_iters * n_sources:
+            return
+        i       = gid // n_sources
+        k       = gid % n_sources
+        n_total = G.shape[1]
+
+        Rk = cuda.local.array((5, 5), dtype=float64)
+        for a in range(5):
+            for b in range(5):
+                Rk[a, b] = 0.0
+        for t in range(n_total):
+            w = W_all[i, t]
+            if w == 0.0:
+                continue
+            for a in range(5):
+                ga = G[k, t, a] * w
+                for b in range(5):
+                    Rk[a, b] += ga * G[k, t, b]
+        for a in range(5):
+            for b in range(5):
+                R[i, k, a, b] = Rk[a, b] * scale
+
+    @cuda.jit
+    def _bootstrap_shifts_batched_kernel(G, obs_data, W_all, R_arr, shifts_array,
+                                          best_vr, best_shift, best_mech,
+                                          rr_arr, scale, MULTIP):
+        """One thread per (iter, source) pair — batched shift loop."""
+        gid       = cuda.grid(1)
+        n_sources = G.shape[0]
+        n_iters   = W_all.shape[0]
+        if gid >= n_iters * n_sources:
+            return
+        i = gid // n_sources
+        k = gid % n_sources
+
+        n_total    = G.shape[1]
+        n_stations = n_total // 1024
+        n_shifts   = shifts_array.shape[0]
+        rr         = rr_arr[i]
+
+        R   = cuda.local.array((5, 5), dtype=float64)
+        g   = cuda.local.array(5,      dtype=float64)
+        a_k = cuda.local.array(5,      dtype=float64)
+        Rt  = cuda.local.array((5, 5), dtype=float64)
+        gt  = cuda.local.array(5,      dtype=float64)
+
+        for a in range(5):
+            for b in range(5):
+                R[a, b] = R_arr[i, k, a, b]
+
+        best_vr_k = -1.0
+        best_s_k  = shifts_array[0]
+
+        for si in range(n_shifts):
+            s = shifts_array[si]
+            if s < 0:
+                t_start = 0
+                t_end   = 1024 + s
+            else:
+                t_start = s
+                t_end   = 1024
+            for n in range(5):
+                g[n] = 0.0
+            for stat in range(n_stations):
+                base = stat * 1024
+                for t in range(t_start, t_end):
+                    obs_idx = base + t
+                    gf_idx  = base + (t - s)
+                    w = W_all[i, obs_idx]
+                    if w == 0.0:
+                        continue
+                    val = obs_data[obs_idx]
+                    for n in range(5):
+                        g[n] += G[k, gf_idx, n] * val * w
+            for n in range(5):
+                g[n] *= scale
+            for a in range(5):
+                for b in range(5):
+                    Rt[a, b] = R[a, b]
+                gt[a] = g[a]
+            _solve5(Rt, gt, a_k)
+            sum1 = 0.0
+            for n in range(5):
+                sum1 += a_k[n] * g[n]
+            vr = ((sum1 / MULTIP) / rr) * 100.0
+            if vr > best_vr_k:
+                best_vr_k = vr
+                best_s_k  = s
+                for n in range(5):
+                    best_mech[i, k, n] = a_k[n]
+
+        best_vr[i, k]    = best_vr_k
+        best_shift[i, k] = best_s_k
+
+    def compute_inversion_numbaGpu(G, obs_data, Dt, shifts_array, num_stations):
+        """GPU inversion — identical return format to compute_inversion_numbaCpu."""
+        MULTIP = 1e20
+        VARDAT = 2.0e-12
+        n_sources, n_total, n_comp = G.shape
+        n_shifts = shifts_array.shape[0]
+        scale = MULTIP * Dt
+        rr    = float(np.sum(obs_data ** 2) * Dt)
+
+        G_d      = cuda.to_device(np.ascontiguousarray(G,            dtype=np.float64))
+        obs_d    = cuda.to_device(np.ascontiguousarray(obs_data,     dtype=np.float64))
+        shifts_d = cuda.to_device(np.ascontiguousarray(shifts_array, dtype=np.int64))
+        R_d      = cuda.device_array((n_sources, n_comp, n_comp),    dtype=np.float64)
+        best_vr_d  = cuda.to_device(np.full(n_sources, -1.0,         dtype=np.float64))
+        best_sh_d  = cuda.device_array(n_sources,                    dtype=np.int64)
+        best_me_d  = cuda.to_device(np.zeros((n_sources, n_comp),    dtype=np.float64))
+        vr_mat_d   = cuda.to_device(np.full((n_sources, n_shifts), -1.0, dtype=np.float64))
+
+        threads = 128
+        blocks  = (n_sources + threads - 1) // threads
+
+        _inversion_R_kernel[blocks, threads](G_d, R_d, scale)
+        cuda.synchronize()
+        _inversion_shifts_kernel[blocks, threads](
+            G_d, obs_d, R_d, shifts_d,
+            best_vr_d, best_sh_d, best_me_d, vr_mat_d,
+            scale, rr, MULTIP)
+        cuda.synchronize()
+
+        best_vr    = best_vr_d.copy_to_host()
+        best_shift = best_sh_d.copy_to_host()
+        best_mech  = best_me_d.copy_to_host()
+        vr_mat     = vr_mat_d.copy_to_host()
+        R          = R_d.copy_to_host()
+
+        best_idx  = int(np.argmax(best_vr))
+        best_corr = np.sqrt(np.maximum(best_vr, 0.0) / 100.0)
+
+        svals     = np.zeros((n_sources, n_comp))
+        cond_nums = np.zeros(n_sources)
+        for k in range(n_sources):
+            eigvals  = np.linalg.eigvalsh(R[k])
+            svals_k  = np.sqrt(np.maximum(eigvals, 0.0) / VARDAT) / 1e10
+            svals[k] = svals_k
+            mn = svals_k.min()
+            cond_nums[k] = svals_k.max() / mn if mn > 0.0 else 0.0
+
+        return (best_shift, best_mech, best_idx, best_vr, best_corr,
+                svals, cond_nums, vr_mat)
+
+    def _bootstrap_gpu_loop(Gboot, Dobs, W, Dt, shifts_array, Coords):
+        """
+        Run all bootstrap iterations in ONE batched GPU launch.
+        Threads = num_iter * n_sources — all (iter, source) pairs in parallel.
+        Returns list of tuples matching compute_bootstraping_numbaCpu output.
+        """
+        MULTIP    = 1e20
+        n_sources, n_total, n_comp = Gboot.shape
+        scale     = Dt * MULTIP
+        num_iter  = W.shape[0]
+        n_keep    = max(1, int(0.2 * n_sources))
+        total_threads = num_iter * n_sources
+
+        # per-iteration rr on CPU (cheap)
+        rr_arr = np.array(
+            [float(np.dot(Dobs ** 2, W[i]) * Dt) for i in range(num_iter)],
+            dtype=np.float64)
+
+        G_d      = cuda.to_device(np.ascontiguousarray(Gboot,        dtype=np.float64))
+        obs_d    = cuda.to_device(np.ascontiguousarray(Dobs,         dtype=np.float64))
+        shifts_d = cuda.to_device(np.ascontiguousarray(shifts_array, dtype=np.int64))
+        W_d      = cuda.to_device(np.ascontiguousarray(W,            dtype=np.float64))
+        rr_d     = cuda.to_device(rr_arr)
+        R_d      = cuda.device_array((num_iter, n_sources, n_comp, n_comp), dtype=np.float64)
+        best_vr_d  = cuda.to_device(np.full((num_iter, n_sources), -1.0,       dtype=np.float64))
+        best_sh_d  = cuda.device_array((num_iter, n_sources),                   dtype=np.int64)
+        best_me_d  = cuda.to_device(np.zeros((num_iter, n_sources, n_comp),     dtype=np.float64))
+
+        threads = 128
+        blocks  = (total_threads + threads - 1) // threads
+
+        _bootstrap_R_batched_kernel[blocks, threads](G_d, W_d, R_d, scale)
+        cuda.synchronize()
+        _bootstrap_shifts_batched_kernel[blocks, threads](
+            G_d, obs_d, W_d, R_d, shifts_d,
+            best_vr_d, best_sh_d, best_me_d,
+            rr_d, scale, MULTIP)
+        cuda.synchronize()
+
+        best_vr    = best_vr_d.copy_to_host()
+        best_shift = best_sh_d.copy_to_host()
+        best_mech  = best_me_d.copy_to_host()
+
+        results = []
+        for i in range(num_iter):
+            idx_sorted = np.argsort(best_vr[i])[::-1]
+            idx_keep   = idx_sorted[:n_keep]
+            results.append((
+                best_shift[i, idx_keep],
+                idx_keep,
+                best_mech[i, idx_keep],
+                best_vr[i, idx_keep],
+                Coords[idx_keep],
+            ))
+        return results
+
+# ---- dispatcher (always present) ---------------------------------------
+def _compute_inversion(G, obs_data, Dt, shifts_array, num_stations):
+    if _USE_GPU and _CUDA_AVAILABLE:
+        return compute_inversion_numbaGpu(G, obs_data, Dt, shifts_array, num_stations)
+    return compute_inversion_numbaCpu(G, obs_data, Dt, shifts_array, num_stations)
+# ========================================================================
 
 def kaganCalc(x):
     return modules.kagan.get_kagan_angle(*x[0:3], *x[3:6])
@@ -1317,7 +1647,7 @@ def run_python_inversion(setup, job):
 
     startKernel = time.time()
     shift, mech, best_idx, vr, corr, singulars, condition, vr_mat = \
-        compute_inversion_numbaCpu(G, Dobs, Dt, Timeshifts, nr)
+        _compute_inversion(G, Dobs, Dt, Timeshifts, nr)
     kernelTime = time.time() - startKernel
 
     # =====================================================
@@ -1708,11 +2038,16 @@ def getBootstrapping(num_iterations=100, num_realizations=100):
     BootstrapResults = []
     BootstrapAngles = []
     startIters = time.time()
-    for i in range(num_iterations):
-        res = compute_bootstraping_numbaCpu(Gboot, Dobs, W[i, :], Dt,
-                                            TimeshiftsBoot, Coords)
-        BootstrapResults.append(res)
-        BootstrapAngles.append(silsub(res[2]))
+    if _USE_GPU and _CUDA_AVAILABLE:
+        BootstrapResults = _bootstrap_gpu_loop(Gboot, Dobs, W, Dt,
+                                               TimeshiftsBoot, Coords)
+        BootstrapAngles  = [silsub(res[2]) for res in BootstrapResults]
+    else:
+        for i in range(num_iterations):
+            res = compute_bootstraping_numbaCpu(Gboot, Dobs, W[i, :], Dt,
+                                                TimeshiftsBoot, Coords)
+            BootstrapResults.append(res)
+            BootstrapAngles.append(silsub(res[2]))
     itersTime = time.time() - startIters
     config.logger.debug("Bootstrap iterations done: %s x %s grid points = %.2f s (%s ms/iter)",
                         num_iterations, Gboot.shape[0], itersTime,

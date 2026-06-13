@@ -1,4 +1,7 @@
 
+# Compute device: CPU or GPU (falls back to CPU if no CUDA GPU is found)
+ComputeDevice: GPU
+
 Version: 1.0
 
 # Directory where the process is being performed
