@@ -1,0 +1,54 @@
+______________________________________
+
+    Demo
+      MyDemo
+______________________________________
+
+======================================
+======= Moment Tensor Solution =======
+======================================
+
+Hypocenter Solution (NOA)
+Origin Time :  20201030 11:51:24.46
+Lat:  37.9001     Lon:  26.8167
+Depth (km) : 12
+Mw :  7.0
+
+======================================
+Centroid Solution
+Centroid Time :  +12.80 (sec) relative to origin time
+Centroid Lat:  37.7147       Lon:  26.8157
+Centroid Depth : 8
+
+======================================
+No of Stations:  11    (KARP-NPS-KTHA-LIA-ITM-NVR-ATH-MVOU-ZKR-ATHA-KLV)
+Freq band (Hz)
+0.008-0.02  tapered 0.007-0.008 and 0.02-0.03
+Variance Reduction (%): 80
+
+Moment Tensor (Nm):  Exponent 10**19
+  Mrr      Mtt     Mpp
+-3.367   3.109   0.258
+  Mrt      Mrp     Mtp
+-0.380   0.637   -0.196
+VOL (%)      : 9.993446762217805e-15
+DC (%)       : 80.4
+CLVD (%)     : 19.6
+Quality      : A1
+
+Computed by: Gisola
+
+Best Double Couple: Mo= 3.335e+19  Nm
+NP1:   Strike   Dip   Rake
+        103      49     -77
+NP2:   Strike   Dip   Rake
+        264      41     -103
+Gisola2 Python inversion
+
+   NP1: strike 103  dip 49  rake -78
+   NP2: strike 265  dip 42  rake -104
+   P axis: azm 73 plunge 80   T axis: azm 185 plunge 4
+
+
+Moment Tensor Solution computed using Gisola
+https://github.com/nikosT/Gisola

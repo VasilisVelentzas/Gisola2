@@ -1,0 +1,2405 @@
+2026-06-13 13:53:21,664 INFO Starting MT calculation for Event Event:	2020-10-30T11:51:24.462125Z | +37.900,  +26.817 | 6.671508077 MLh | manual
+
+	            resource_id: ResourceIdentifier(id="smi:org.gfz-potsdam.de/geofon/noa2020vipzs")
+	             event_type: 'earthquake'
+	   event_type_certainty: 'known'
+	          creation_info: CreationInfo(agency_id='NOAIG', author='scevent@sc3-prime', creation_time=UTCDateTime(2020, 10, 30, 11, 52, 42, 333901))
+	    preferred_origin_id: ResourceIdentifier(id="smi:org.gfz-potsdam.de/geofon/NLL.20201030124920.891241.44820")
+	 preferred_magnitude_id: ResourceIdentifier(id="smi:org.gfz-potsdam.de/geofon/Magnitude/20201030124942.527002.44891")
+	                   ---------
+	     event_descriptions: 1 Elements
+	                  picks: 246 Elements
+	                origins: 26 Elements
+	             magnitudes: 24 Elements
+Origin
+	        resource_id: ResourceIdentifier(id="smi:org.gfz-potsdam.de/geofon/NLL.20201030124920.891241.44820")
+	               time: UTCDateTime(2020, 10, 30, 11, 51, 24, 462125)
+	          longitude: 26.81671143 [uncertainty=1.241405106]
+	           latitude: 37.90008545 [uncertainty=0.8727071558]
+	              depth: 11783.65072 [uncertainty=3421.410219]
+	          method_id: ResourceIdentifier(id="smi:org.gfz-potsdam.de/geofon/ak135")
+	     earth_model_id: ResourceIdentifier(id="smi:org.gfz-potsdam.de/geofon/AK135")
+	            quality: OriginQuality(associated_phase_count=61, used_phase_count=61, used_station_count=59, standard_error=0.3911845389, azimuthal_gap=64.83726724, secondary_azimuthal_gap=89.01345468, ground_truth_level='-', minimum_distance=0.7750363546, maximum_distance=2.938901216, median_distance=2.271755863)
+	 origin_uncertainty: OriginUncertainty(horizontal_uncertainty=1931.745914, min_horizontal_uncertainty=1250.830878, max_horizontal_uncertainty=1931.745914, azimuth_max_horizontal_uncertainty=72.91038679, confidence_ellipsoid=ConfidenceEllipsoid(semi_major_axis_length=6432028.2, semi_minor_axis_length=1547231.763, semi_intermediate_axis_length=2384529.879, major_axis_plunge=177.8979889, major_axis_azimuth=-141.0641281, major_axis_rotation=89.20768083))
+	    evaluation_mode: 'manual'
+	  evaluation_status: 'confirmed'
+	      creation_info: CreationInfo(agency_id='NOAreg1', author='A.Fokaefs', creation_time=UTCDateTime(2020, 10, 30, 12, 49, 26, 293035))
+	               ---------
+	           arrivals: 61 Elements
+Magnitude
+	       resource_id: ResourceIdentifier(id="smi:org.gfz-potsdam.de/geofon/Magnitude/20201030124942.527002.44891")
+	               mag: 6.671508077 [uncertainty=0.1528564736]
+	    magnitude_type: 'MLh'
+	         origin_id: ResourceIdentifier(id="smi:org.gfz-potsdam.de/geofon/NLL.20201030124920.891241.44820")
+	         method_id: ResourceIdentifier(id="smi:org.gfz-potsdam.de/geofon/trimmed_mean")
+	     station_count: 29
+	 evaluation_status: 'confirmed'
+	     creation_info: CreationInfo(agency_id='NOAreg1', author='A.Fokaefs', creation_time=UTCDateTime(2020, 10, 30, 12, 51, 10, 232372))
+
+2026-06-13 13:53:21,665 INFO Setting working dir to: ../test/results/2020/noa2020vipzs/2026-06-13T13:53:21.646677Z
+2026-06-13 13:53:21,665 INFO Retrieving inventory with working epochs from 2020-10-30T11:51:14.462125Z to 2020-10-30T11:58:15.462125Z and stations between 100 and 700 km from event's location
+2026-06-13 13:53:21,665 INFO Reading Inventory from ../test/benchmark/inventory.xml
+2026-06-13 13:53:21,940 INFO Accepted channels: ['BH1', 'BH2', 'BH3', 'BHE', 'BHN', 'BHZ', 'HH1', 'HH2', 'HH3', 'HHE', 'HHN', 'HHZ']
+2026-06-13 13:53:21,959 INFO Saving inventory in one StationXML file in ../test/results/2020/noa2020vipzs/2026-06-13T13:53:21.646677Z/inventory.xml
+2026-06-13 13:53:22,184 INFO Function 'getInventory' executed 0.52 seconds
+2026-06-13 13:53:22,188 INFO Inventory created at 2026-06-13T13:53:21.959832Z
+	Created by: ObsPy 1.2.2
+		    https://www.obspy.org
+	Sending institution: ObsPy 1.2.2,SeisComP (NOAIG)
+	Contains:
+		Networks (114):
+			CQ (18x), GE (9x), HL (78x), HP (9x)
+		Stations (114):
+			CQ.AKMS (Akamas,Cyprus) (3x)
+			CQ.ALEF (Alefka,Cyprus) (3x)
+			CQ.ASGA (Asgata,Cyprus) (3x)
+			CQ.ATHA (Athalassa,Cyprus) (3x)
+			CQ.MVOU (Maurovouni,Cyprus) (3x)
+			CQ.TROD (Troodos,Cyprus) (3x)
+			GE.CSS (GEOFON/GII Station Mathiatis, Cyprus) (6x)
+			GE.ISP (GEOFON/MedNet/KOERI Station Isparta, Turkey) (3x)
+			HL.ANKY (Antikythira Island, Greece) (3x)
+			HL.APE (NOA/GEOFON Apeiranthos,Naxos,Greece) (3x)
+			HL.ATH (Athens,Greece) (3x)
+			HL.GVD (NOA/GEOFON Gavdos,Greece) (3x)
+			HL.IDI (Anogia-Crete,Greece) (3x)
+			HL.IMMV (NOA/GEOFON Iera Moni Varipetrou,Greece) (3x)
+			HL.ITM (Ithomi,Messinia,Greece) (3x)
+			HL.JAN (Ioannina, Greece) (3x)
+			HL.KARP (NOA/RUB/GEOFON Karpathos,Greece) (3x)
+			HL.KEK (Corfu,Greece) (3x)
+			HL.KLV (Kalavrita, Achaia, Greece) (3x)
+			HL.KSL (Kastelorizo Island, Greece) (3x)
+			HL.KTHA (NOA/GEOFON Kythira,Greece) (3x)
+			HL.KZN (Kozani,Greece) (3x)
+			HL.LIA (Limnos,Greece) (3x)
+			HL.NPS (Neapoli, Crete, Greece) (3x)
+			HL.NVR (Nevrokopi, Greece) (3x)
+			HL.PRK (Agia Paraskevi, Lesvos, Greece) (3x)
+			HL.SIVA (Sivas,Crete,Greece) (3x)
+			HL.SMTH (Samothraki Island, Greece) (3x)
+			HL.THERA (NOA/GEOFON Santorini,Greece) (3x)
+			HL.THL (Klokotos, Thessalia, Greece) (3x)
+			HL.VAM (Vamos,Crete,Greece) (3x)
+			HL.VLI (Vellies, Lakonia, Greece) (3x)
+			HL.VLS (Valsamata, Kefalonia Island, Greece) (3x)
+			HL.ZKR (NOA/GEOFON Zakros,Greece) (3x)
+			HP.LTK (Loutraki) (3x)
+			HP.PDO (Prodromos,Greece) (3x)
+			HP.SERG (Sergoula,Greece) (3x)
+		Channels (117):
+			CQ.AKMS..HHZ, CQ.AKMS..HHN, CQ.AKMS..HHE, CQ.ALEF..HHZ, 
+			CQ.ALEF..HHN, CQ.ALEF..HHE, CQ.ASGA..HHZ, CQ.ASGA..HHN, 
+			CQ.ASGA..HHE, CQ.ATHA..HHZ, CQ.ATHA..HHN, CQ.ATHA..HHE, 
+			CQ.MVOU..HHZ, CQ.MVOU..HHN, CQ.MVOU..HHE, CQ.TROD..HHZ, 
+			CQ.TROD..HHN, CQ.TROD..HHE, GE.CSS..BHZ, GE.CSS..BHN, GE.CSS..BHE, 
+			GE.CSS..HHZ, GE.CSS..HHN, GE.CSS..HHE, GE.ISP.00.BHZ, GE.ISP.00.BHN
+			GE.ISP.00.BHE, GE.ISP.10.BHZ, GE.ISP.10.BHN, GE.ISP.10.BHE, 
+			HL.ANKY..HHZ, HL.ANKY..HHN, HL.ANKY..HHE, HL.APE..HHZ, HL.APE..HHN
+			HL.APE..HHE, HL.ATH..HHZ, HL.ATH..HHN, HL.ATH..HHE, HL.GVD..HHZ, 
+			HL.GVD..HHN, HL.GVD..HHE, HL.IDI..HHZ, HL.IDI..HHN, HL.IDI..HHE, 
+			HL.IMMV..HHZ, HL.IMMV..HHN, HL.IMMV..HHE, HL.ITM..HHZ, HL.ITM..HHN
+			HL.ITM..HHE, HL.JAN..HHZ, HL.JAN..HHN, HL.JAN..HHE, HL.KARP..HHZ
+			HL.KARP..HHN, HL.KARP..HHE, HL.KEK..HHZ, HL.KEK..HHN, HL.KEK..HHE
+			HL.KLV..HHZ, HL.KLV..HHN, HL.KLV..HHE, HL.KSL..HHZ, HL.KSL..HHN, 
+			HL.KSL..HHE, HL.KTHA..HHZ, HL.KTHA..HHN, HL.KTHA..HHE, HL.KZN..HHZ
+			HL.KZN..HHN, HL.KZN..HHE, HL.LIA..HHZ, HL.LIA..HHN, HL.LIA..HHE, 
+			HL.NPS..HHZ, HL.NPS..HHN, HL.NPS..HHE, HL.NVR..HHZ, HL.NVR..HHN, 
+			HL.NVR..HHE, HL.PRK..HHZ, HL.PRK..HHN, HL.PRK..HHE, HL.SIVA..HHZ, 
+			HL.SIVA..HHN, HL.SIVA..HHE, HL.SMTH..HHZ, HL.SMTH..HHN, 
+			HL.SMTH..HHE, HL.THERA..HHZ, HL.THERA..HHN, HL.THERA..HHE, 
+			HL.THL..HHZ, HL.THL..HHN, HL.THL..HHE, HL.VAM..HHZ, HL.VAM..HHN, 
+			HL.VAM..HHE, HL.VLI..HHZ, HL.VLI..HHN, HL.VLI..HHE, HL.VLS..HHZ, 
+			HL.VLS..HHN, HL.VLS..HHE, HL.ZKR..HHZ, HL.ZKR..HHN, HL.ZKR..HHE, 
+			HP.LTK..HHZ, HP.LTK..HHN, HP.LTK..HHE, HP.PDO..HHZ, HP.PDO..HHN, 
+			HP.PDO..HHE, HP.SERG.00.HHZ, HP.SERG.00.HHN, HP.SERG.00.HHE
+2026-06-13 13:53:22,189 INFO Selecting stations with channel codes ['BH', 'HH'] and that they are between 100 and 700 km from event's location
+2026-06-13 13:53:22,195 INFO Saving inventory in XML file ../test/results/2020/noa2020vipzs/2026-06-13T13:53:21.646677Z/inventory.xml
+2026-06-13 13:53:22,386 INFO Function 'selectDist' executed 0.2 seconds
+2026-06-13 13:53:22,390 INFO Inventory created at 2026-06-13T13:53:22.195220Z
+	Created by: ObsPy 1.2.2
+		    https://www.obspy.org
+	Sending institution: ObsPy 1.2.2,SeisComP (NOAIG)
+	Contains:
+		Networks (114):
+			CQ (18x), GE (9x), HL (78x), HP (9x)
+		Stations (114):
+			CQ.AKMS (Akamas,Cyprus) (3x)
+			CQ.ALEF (Alefka,Cyprus) (3x)
+			CQ.ASGA (Asgata,Cyprus) (3x)
+			CQ.ATHA (Athalassa,Cyprus) (3x)
+			CQ.MVOU (Maurovouni,Cyprus) (3x)
+			CQ.TROD (Troodos,Cyprus) (3x)
+			GE.CSS (GEOFON/GII Station Mathiatis, Cyprus) (6x)
+			GE.ISP (GEOFON/MedNet/KOERI Station Isparta, Turkey) (3x)
+			HL.ANKY (Antikythira Island, Greece) (3x)
+			HL.APE (NOA/GEOFON Apeiranthos,Naxos,Greece) (3x)
+			HL.ATH (Athens,Greece) (3x)
+			HL.GVD (NOA/GEOFON Gavdos,Greece) (3x)
+			HL.IDI (Anogia-Crete,Greece) (3x)
+			HL.IMMV (NOA/GEOFON Iera Moni Varipetrou,Greece) (3x)
+			HL.ITM (Ithomi,Messinia,Greece) (3x)
+			HL.JAN (Ioannina, Greece) (3x)
+			HL.KARP (NOA/RUB/GEOFON Karpathos,Greece) (3x)
+			HL.KEK (Corfu,Greece) (3x)
+			HL.KLV (Kalavrita, Achaia, Greece) (3x)
+			HL.KSL (Kastelorizo Island, Greece) (3x)
+			HL.KTHA (NOA/GEOFON Kythira,Greece) (3x)
+			HL.KZN (Kozani,Greece) (3x)
+			HL.LIA (Limnos,Greece) (3x)
+			HL.NPS (Neapoli, Crete, Greece) (3x)
+			HL.NVR (Nevrokopi, Greece) (3x)
+			HL.PRK (Agia Paraskevi, Lesvos, Greece) (3x)
+			HL.SIVA (Sivas,Crete,Greece) (3x)
+			HL.SMTH (Samothraki Island, Greece) (3x)
+			HL.THERA (NOA/GEOFON Santorini,Greece) (3x)
+			HL.THL (Klokotos, Thessalia, Greece) (3x)
+			HL.VAM (Vamos,Crete,Greece) (3x)
+			HL.VLI (Vellies, Lakonia, Greece) (3x)
+			HL.VLS (Valsamata, Kefalonia Island, Greece) (3x)
+			HL.ZKR (NOA/GEOFON Zakros,Greece) (3x)
+			HP.LTK (Loutraki) (3x)
+			HP.PDO (Prodromos,Greece) (3x)
+			HP.SERG (Sergoula,Greece) (3x)
+		Channels (117):
+			CQ.AKMS..HHZ, CQ.AKMS..HHN, CQ.AKMS..HHE, CQ.ALEF..HHZ, 
+			CQ.ALEF..HHN, CQ.ALEF..HHE, CQ.ASGA..HHZ, CQ.ASGA..HHN, 
+			CQ.ASGA..HHE, CQ.ATHA..HHZ, CQ.ATHA..HHN, CQ.ATHA..HHE, 
+			CQ.MVOU..HHZ, CQ.MVOU..HHN, CQ.MVOU..HHE, CQ.TROD..HHZ, 
+			CQ.TROD..HHN, CQ.TROD..HHE, GE.CSS..BHZ, GE.CSS..BHN, GE.CSS..BHE, 
+			GE.CSS..HHZ, GE.CSS..HHN, GE.CSS..HHE, GE.ISP.00.BHZ, GE.ISP.00.BHN
+			GE.ISP.00.BHE, GE.ISP.10.BHZ, GE.ISP.10.BHN, GE.ISP.10.BHE, 
+			HL.ANKY..HHZ, HL.ANKY..HHN, HL.ANKY..HHE, HL.APE..HHZ, HL.APE..HHN
+			HL.APE..HHE, HL.ATH..HHZ, HL.ATH..HHN, HL.ATH..HHE, HL.GVD..HHZ, 
+			HL.GVD..HHN, HL.GVD..HHE, HL.IDI..HHZ, HL.IDI..HHN, HL.IDI..HHE, 
+			HL.IMMV..HHZ, HL.IMMV..HHN, HL.IMMV..HHE, HL.ITM..HHZ, HL.ITM..HHN
+			HL.ITM..HHE, HL.JAN..HHZ, HL.JAN..HHN, HL.JAN..HHE, HL.KARP..HHZ
+			HL.KARP..HHN, HL.KARP..HHE, HL.KEK..HHZ, HL.KEK..HHN, HL.KEK..HHE
+			HL.KLV..HHZ, HL.KLV..HHN, HL.KLV..HHE, HL.KSL..HHZ, HL.KSL..HHN, 
+			HL.KSL..HHE, HL.KTHA..HHZ, HL.KTHA..HHN, HL.KTHA..HHE, HL.KZN..HHZ
+			HL.KZN..HHN, HL.KZN..HHE, HL.LIA..HHZ, HL.LIA..HHN, HL.LIA..HHE, 
+			HL.NPS..HHZ, HL.NPS..HHN, HL.NPS..HHE, HL.NVR..HHZ, HL.NVR..HHN, 
+			HL.NVR..HHE, HL.PRK..HHZ, HL.PRK..HHN, HL.PRK..HHE, HL.SIVA..HHZ, 
+			HL.SIVA..HHN, HL.SIVA..HHE, HL.SMTH..HHZ, HL.SMTH..HHN, 
+			HL.SMTH..HHE, HL.THERA..HHZ, HL.THERA..HHN, HL.THERA..HHE, 
+			HL.THL..HHZ, HL.THL..HHN, HL.THL..HHE, HL.VAM..HHZ, HL.VAM..HHN, 
+			HL.VAM..HHE, HL.VLI..HHZ, HL.VLI..HHN, HL.VLI..HHE, HL.VLS..HHZ, 
+			HL.VLS..HHN, HL.VLS..HHE, HL.ZKR..HHZ, HL.ZKR..HHN, HL.ZKR..HHE, 
+			HP.LTK..HHZ, HP.LTK..HHN, HP.LTK..HHE, HP.PDO..HHZ, HP.PDO..HHN, 
+			HP.PDO..HHE, HP.SERG.00.HHZ, HP.SERG.00.HHN, HP.SERG.00.HHE
+2026-06-13 13:53:22,391 INFO Retrieving waveforms based on inventory from 2020-10-30T11:51:14.462125Z to 2020-10-30T11:58:15.462125Z
+2026-06-13 13:53:22,394 INFO Connecting to SDS directory ../test/benchmark/archive
+2026-06-13 13:53:24,991 INFO Saving waveforms in one mseed file in ../test/results/2020/noa2020vipzs/2026-06-13T13:53:21.646677Z/streams.mseed
+2026-06-13 13:53:25,266 INFO 96 Trace(s) in Stream:
+HL.KEK..HHE    | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+HL.KEK..HHN    | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+HL.KEK..HHZ    | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+HL.THERA..HHE  | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+HL.THERA..HHN  | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+HL.THERA..HHZ  | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+HL.VLS..HHE    | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+HL.VLS..HHN    | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+HL.VLS..HHZ    | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+HL.KLV..HHE    | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+HL.KLV..HHN    | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+HL.KLV..HHZ    | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+HL.ANKY..HHE   | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+HL.ANKY..HHN   | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+HL.ANKY..HHZ   | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+HL.IDI..HHE    | 2020-10-30T11:51:14.475000Z - 2020-10-30T11:58:15.462500Z | 80.0 Hz, 33680 samples
+HL.IDI..HHN    | 2020-10-30T11:51:14.475000Z - 2020-10-30T11:58:15.462500Z | 80.0 Hz, 33680 samples
+HL.IDI..HHZ    | 2020-10-30T11:51:14.475000Z - 2020-10-30T11:58:15.462500Z | 80.0 Hz, 33680 samples
+HL.PRK..HHE    | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+HL.PRK..HHN    | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+HL.PRK..HHZ    | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+HL.SMTH..HHE   | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+HL.SMTH..HHN   | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+HL.SMTH..HHZ   | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+CQ.ATHA..HHE   | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+CQ.ATHA..HHN   | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+CQ.ATHA..HHZ   | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+HL.NPS..HHE    | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+HL.NPS..HHN    | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+HL.NPS..HHZ    | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+HP.PDO..HHE    | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+HP.PDO..HHN    | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+HP.PDO..HHZ    | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+HL.ITM..HHE    | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+HL.ITM..HHN    | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+HL.ITM..HHZ    | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+HL.NVR..HHE    | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+HL.NVR..HHN    | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+HL.NVR..HHZ    | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+HL.VLI..HHE    | 2020-10-30T11:51:14.474999Z - 2020-10-30T11:58:15.464999Z | 100.0 Hz, 42100 samples
+HL.VLI..HHN    | 2020-10-30T11:51:14.474999Z - 2020-10-30T11:58:15.464999Z | 100.0 Hz, 42100 samples
+HL.VLI..HHZ    | 2020-10-30T11:51:14.475000Z - 2020-10-30T11:58:15.465000Z | 100.0 Hz, 42100 samples
+HL.APE..HHE    | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+HL.APE..HHN    | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+HL.APE..HHZ    | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+HL.JAN..HHE    | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+HL.JAN..HHN    | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+HL.JAN..HHZ    | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+CQ.ASGA..HHE   | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+CQ.ASGA..HHN   | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+CQ.ASGA..HHZ   | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+HL.KSL..HHE    | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+HL.KSL..HHN    | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+HL.KSL..HHZ    | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+HL.GVD..HHE    | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+HL.GVD..HHN    | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+HL.GVD..HHZ    | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+HL.KZN..HHE    | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+HL.KZN..HHN    | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+HL.KZN..HHZ    | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+HP.LTK..HHE    | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+HP.LTK..HHN    | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+HP.LTK..HHZ    | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+HP.SERG.00.HHE | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+HP.SERG.00.HHN | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+HP.SERG.00.HHZ | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+HL.KTHA..HHE   | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+HL.KTHA..HHN   | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+HL.KTHA..HHZ   | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+HL.THL..HHE    | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+HL.THL..HHN    | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+HL.THL..HHZ    | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+HL.LIA..HHE    | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+HL.LIA..HHN    | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+HL.LIA..HHZ    | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+HL.SIVA..HHE   | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+HL.SIVA..HHN   | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+HL.SIVA..HHZ   | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+CQ.MVOU..HHE   | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+CQ.MVOU..HHN   | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+CQ.MVOU..HHZ   | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+CQ.AKMS..HHE   | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+CQ.AKMS..HHN   | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+CQ.AKMS..HHZ   | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+HL.ATH..HHE    | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+HL.ATH..HHN    | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+HL.ATH..HHZ    | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+HL.VAM..HHE    | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+HL.VAM..HHN    | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+HL.VAM..HHZ    | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+HL.ZKR..HHE    | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+HL.ZKR..HHN    | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+HL.ZKR..HHZ    | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+HL.KARP..HHE   | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+HL.KARP..HHN   | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+HL.KARP..HHZ   | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples
+2026-06-13 13:53:25,266 INFO Function 'inner' executed 2.88 seconds
+2026-06-13 13:53:25,266 INFO Removing waveforms with inconsistency between data and meta data
+2026-06-13 13:53:25,267 INFO Removing waveforms with gaps
+2026-06-13 13:53:25,268 INFO Starting waveform checks and corrections
+Checking for SNR, clipping and long-period disturbances (based on configuration enabling). Correcting by applying linear detrend and instrument response removal
+2026-06-13 13:53:25,902 INFO Clipping check for HL.VAM..HHZ | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: False
+2026-06-13 13:53:25,934 INFO Clipping check for HL.PRK..HHZ | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: False
+2026-06-13 13:53:25,948 INFO Clipping check for HL.IDI..HHZ | 2020-10-30T11:51:14.475000Z - 2020-10-30T11:58:15.462500Z | 80.0 Hz, 33680 samples passed: False
+2026-06-13 13:53:25,953 INFO Clipping check for HL.APE..HHZ | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: False
+2026-06-13 13:53:26,021 INFO Clipping check for CQ.ASGA..HHZ | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: False
+2026-06-13 13:53:26,031 INFO Clipping check for HL.KEK..HHZ | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: True
+2026-06-13 13:53:26,049 INFO Clipping check for HL.THL..HHZ | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: True
+2026-06-13 13:53:26,054 INFO Clipping check for HL.KLV..HHZ | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: True
+2026-06-13 13:53:26,060 INFO Clipping check for HP.PDO..HHZ | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: True
+2026-06-13 13:53:26,090 INFO Clipping check for HL.NPS..HHZ | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: False
+2026-06-13 13:53:26,104 INFO Clipping check for HL.KARP..HHZ | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: True
+2026-06-13 13:53:26,092 INFO Clipping check for HL.JAN..HHZ | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: False
+2026-06-13 13:53:26,131 INFO Clipping check for HL.NVR..HHZ | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: True
+2026-06-13 13:53:26,146 INFO Clipping check for HL.IDI..HHN | 2020-10-30T11:51:14.475000Z - 2020-10-30T11:58:15.462500Z | 80.0 Hz, 33680 samples passed: False
+2026-06-13 13:53:26,226 INFO Clipping check for HL.LIA..HHZ | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: True
+2026-06-13 13:53:26,273 INFO Clipping check for HP.PDO..HHN | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: True
+2026-06-13 13:53:26,287 INFO Clipping check for HL.VAM..HHN | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: False
+2026-06-13 13:53:26,311 INFO Clipping check for HL.IDI..HHE | 2020-10-30T11:51:14.475000Z - 2020-10-30T11:58:15.462500Z | 80.0 Hz, 33680 samples passed: False
+2026-06-13 13:53:26,327 INFO Clipping check for HL.THERA..HHZ | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: False
+2026-06-13 13:53:26,316 INFO Clipping check for HL.PRK..HHN | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: False
+2026-06-13 13:53:26,404 INFO Clipping check for HL.JAN..HHN | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: True
+2026-06-13 13:53:26,421 INFO Clipping check for HL.KEK..HHN | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: True
+2026-06-13 13:53:26,422 INFO Clipping check for HL.THL..HHN | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: True
+2026-06-13 13:53:26,435 INFO Clipping check for HL.NVR..HHN | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: True
+2026-06-13 13:53:26,457 INFO Clipping check for HL.KLV..HHN | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: True
+2026-06-13 13:53:26,463 INFO Clipping check for HL.APE..HHN | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: False
+2026-06-13 13:53:26,472 INFO Clipping check for CQ.ASGA..HHN | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: True
+2026-06-13 13:53:26,501 INFO Clipping check for HL.NPS..HHN | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: True
+2026-06-13 13:53:26,508 INFO Clipping check for CQ.ATHA..HHZ | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: True
+2026-06-13 13:53:26,574 INFO Clipping check for HL.KARP..HHN | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: True
+2026-06-13 13:53:26,633 INFO Clipping check for HL.PRK..HHE | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: False
+2026-06-13 13:53:26,640 INFO Clipping check for HL.VAM..HHE | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: False
+2026-06-13 13:53:26,650 INFO Clipping check for HL.JAN..HHE | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: True
+2026-06-13 13:53:26,677 INFO Clipping check for CQ.ASGA..HHE | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: True
+2026-06-13 13:53:26,692 INFO Clipping check for HP.PDO..HHE | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: True
+2026-06-13 13:53:26,713 INFO Clipping check for HL.NPS..HHE | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: False
+2026-06-13 13:53:26,730 INFO Clipping check for HL.THERA..HHN | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: False
+2026-06-13 13:53:26,725 INFO Clipping check for HL.THL..HHE | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: True
+2026-06-13 13:53:26,735 INFO Clipping check for HL.KEK..HHE | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: True
+2026-06-13 13:53:26,742 INFO Clipping check for HL.NVR..HHE | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: True
+2026-06-13 13:53:26,746 INFO Clipping check for HL.APE..HHE | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: False
+2026-06-13 13:53:26,743 INFO Clipping check for HL.KLV..HHE | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: True
+2026-06-13 13:53:26,794 INFO Clipping check for CQ.ATHA..HHN | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: False
+2026-06-13 13:53:26,794 INFO Clipping check for HL.LIA..HHN | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: True
+2026-06-13 13:53:26,888 INFO Clipping check for HL.KTHA..HHZ | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: True
+2026-06-13 13:53:26,891 INFO Clipping check for HL.KARP..HHE | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: True
+2026-06-13 13:53:26,941 INFO Clipping check for HL.ANKY..HHZ | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: False
+2026-06-13 13:53:26,996 INFO Clipping check for HL.ATH..HHZ | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: False
+2026-06-13 13:53:26,998 INFO Mouse check for CQ.ASGA..HHN | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.370000Z | 10.0 Hz, 4210 samples passed: True
+2026-06-13 13:53:27,011 INFO Mouse check for HL.THL..HHZ | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.370000Z | 10.0 Hz, 4210 samples passed: True
+2026-06-13 13:53:27,035 INFO Clipping check for HL.THERA..HHE | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: False
+2026-06-13 13:53:27,040 INFO Mouse check for HL.NPS..HHN | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.370000Z | 10.0 Hz, 4210 samples passed: True
+2026-06-13 13:53:27,044 INFO Clipping check for HL.LIA..HHE | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: True
+2026-06-13 13:53:27,048 INFO Clipping check for CQ.ATHA..HHE | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: True
+2026-06-13 13:53:27,079 INFO Mouse check for HL.NVR..HHZ | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.370000Z | 10.0 Hz, 4210 samples passed: True
+2026-06-13 13:53:27,151 INFO Mouse check for HL.JAN..HHN | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.370000Z | 10.0 Hz, 4210 samples passed: True
+2026-06-13 13:53:27,181 INFO Mouse check for HP.PDO..HHZ | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.370000Z | 10.0 Hz, 4210 samples passed: True
+2026-06-13 13:53:27,194 INFO Mouse check for HL.THL..HHN | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.370000Z | 10.0 Hz, 4210 samples passed: False
+2026-06-13 13:53:27,202 INFO Clipping check for HL.SIVA..HHZ | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: False
+2026-06-13 13:53:27,195 INFO Clipping check for HL.KTHA..HHN | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: True
+2026-06-13 13:53:27,213 INFO Mouse check for HL.KLV..HHZ | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.370000Z | 10.0 Hz, 4210 samples passed: True
+2026-06-13 13:53:27,227 INFO Mouse check for HL.NVR..HHN | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.370000Z | 10.0 Hz, 4210 samples passed: True
+2026-06-13 13:53:27,239 INFO Mouse check for CQ.ATHA..HHZ | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.370000Z | 10.0 Hz, 4210 samples passed: True
+2026-06-13 13:53:27,260 INFO Mouse check for HL.LIA..HHZ | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.370000Z | 10.0 Hz, 4210 samples passed: True
+2026-06-13 13:53:27,263 INFO Mouse check for CQ.ASGA..HHE | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.370000Z | 10.0 Hz, 4210 samples passed: True
+2026-06-13 13:53:27,270 INFO Mouse check for HL.KARP..HHZ | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.370000Z | 10.0 Hz, 4210 samples passed: True
+2026-06-13 13:53:27,291 INFO Clipping check for HL.ANKY..HHN | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: False
+2026-06-13 13:53:27,314 INFO Mouse check for HL.KEK..HHZ | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.370000Z | 10.0 Hz, 4210 samples passed: True
+2026-06-13 13:53:27,372 INFO Clipping check for HL.ATH..HHN | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: True
+2026-06-13 13:53:27,384 INFO Mouse check for HP.PDO..HHN | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.370000Z | 10.0 Hz, 4210 samples passed: False
+2026-06-13 13:53:27,442 INFO Clipping check for CQ.MVOU..HHZ | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: True
+2026-06-13 13:53:27,442 INFO Clipping check for HL.SIVA..HHN | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: False
+2026-06-13 13:53:27,458 INFO Mouse check for CQ.ATHA..HHE | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.370000Z | 10.0 Hz, 4210 samples passed: True
+2026-06-13 13:53:27,466 INFO Mouse check for HL.NVR..HHE | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.370000Z | 10.0 Hz, 4210 samples passed: False
+2026-06-13 13:53:27,468 INFO Mouse check for HL.JAN..HHE | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.370000Z | 10.0 Hz, 4210 samples passed: True
+2026-06-13 13:53:27,516 INFO Mouse check for HL.LIA..HHN | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.370000Z | 10.0 Hz, 4210 samples passed: True
+2026-06-13 13:53:27,556 INFO Mouse check for HL.THL..HHE | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.370000Z | 10.0 Hz, 4210 samples passed: True
+2026-06-13 13:53:27,563 INFO Clipping check for HL.KZN..HHZ | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: True
+2026-06-13 13:53:27,566 INFO Mouse check for HL.KLV..HHN | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.370000Z | 10.0 Hz, 4210 samples passed: True
+2026-06-13 13:53:27,583 INFO Mouse check for HL.KEK..HHN | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.370000Z | 10.0 Hz, 4210 samples passed: False
+2026-06-13 13:53:27,608 INFO Clipping check for HL.ANKY..HHE | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: False
+2026-06-13 13:53:27,705 INFO Clipping check for HL.KTHA..HHE | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: False
+2026-06-13 13:53:27,712 INFO Clipping check for HL.SIVA..HHE | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: False
+2026-06-13 13:53:27,769 INFO Mouse check for HL.KARP..HHN | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.370000Z | 10.0 Hz, 4210 samples passed: True
+2026-06-13 13:53:27,777 INFO Mouse check for HL.KEK..HHE | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.370000Z | 10.0 Hz, 4210 samples passed: True
+2026-06-13 13:53:27,821 INFO Mouse check for HP.PDO..HHE | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.370000Z | 10.0 Hz, 4210 samples passed: True
+2026-06-13 13:53:27,825 INFO Clipping check for HL.ATH..HHE | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: True
+2026-06-13 13:53:27,828 INFO Mouse check for HL.LIA..HHE | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.370000Z | 10.0 Hz, 4210 samples passed: True
+2026-06-13 13:53:27,912 INFO Clipping check for CQ.MVOU..HHN | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: True
+2026-06-13 13:53:27,937 INFO Clipping check for HP.SERG.00.HHZ | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: False
+2026-06-13 13:53:28,045 INFO Mouse check for HL.KLV..HHE | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.370000Z | 10.0 Hz, 4210 samples passed: True
+2026-06-13 13:53:28,057 INFO Clipping check for HL.SMTH..HHZ | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: False
+2026-06-13 13:53:28,063 INFO Clipping check for HL.KZN..HHN | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: True
+2026-06-13 13:53:28,134 INFO Clipping check for HP.SERG.00.HHN | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: False
+2026-06-13 13:53:28,153 INFO Clipping check for HL.VLS..HHZ | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: False
+2026-06-13 13:53:28,188 INFO Clipping check for HP.LTK..HHZ | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: True
+2026-06-13 13:53:28,213 INFO Clipping check for HL.KZN..HHE | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: True
+2026-06-13 13:53:28,222 INFO Clipping check for HL.ITM..HHZ | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: True
+2026-06-13 13:53:28,239 INFO Clipping check for HL.GVD..HHZ | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: False
+2026-06-13 13:53:28,278 INFO Mouse check for HL.ATH..HHN | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.370000Z | 10.0 Hz, 4210 samples passed: True
+2026-06-13 13:53:28,280 INFO Mouse check for HL.KARP..HHE | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.370000Z | 10.0 Hz, 4210 samples passed: True
+2026-06-13 13:53:28,344 INFO Clipping check for HP.SERG.00.HHE | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: False
+2026-06-13 13:53:28,357 INFO Clipping check for HL.ZKR..HHZ | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: True
+2026-06-13 13:53:28,388 INFO Clipping check for HP.LTK..HHN | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: False
+2026-06-13 13:53:28,421 INFO Clipping check for HL.VLS..HHN | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: True
+2026-06-13 13:53:28,531 INFO Mouse check for HL.KTHA..HHZ | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.370000Z | 10.0 Hz, 4210 samples passed: True
+2026-06-13 13:53:28,444 INFO Clipping check for HL.SMTH..HHN | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: False
+2026-06-13 13:53:28,540 INFO Clipping check for CQ.MVOU..HHE | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: True
+2026-06-13 13:53:28,631 INFO Clipping check for HL.GVD..HHN | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: False
+2026-06-13 13:53:28,633 INFO Mouse check for HL.KZN..HHZ | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.370000Z | 10.0 Hz, 4210 samples passed: True
+2026-06-13 13:53:28,649 INFO Clipping check for HL.ZKR..HHN | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: True
+2026-06-13 13:53:28,653 INFO Clipping check for HL.ITM..HHN | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: True
+2026-06-13 13:53:28,664 INFO Clipping check for HP.LTK..HHE | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: True
+2026-06-13 13:53:28,684 INFO Mouse check for HL.ATH..HHE | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.370000Z | 10.0 Hz, 4210 samples passed: True
+2026-06-13 13:53:28,709 INFO Clipping check for HL.VLS..HHE | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: True
+2026-06-13 13:53:28,841 INFO Clipping check for HL.SMTH..HHE | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: True
+2026-06-13 13:53:28,850 INFO Clipping check for CQ.AKMS..HHZ | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: False
+2026-06-13 13:53:28,882 INFO Clipping check for HL.ITM..HHE | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: True
+2026-06-13 13:53:28,884 INFO Clipping check for HL.GVD..HHE | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: True
+2026-06-13 13:53:28,889 INFO Mouse check for HL.KZN..HHN | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.370000Z | 10.0 Hz, 4210 samples passed: False
+2026-06-13 13:53:28,890 INFO Mouse check for HL.KTHA..HHN | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.370000Z | 10.0 Hz, 4210 samples passed: True
+2026-06-13 13:53:28,905 INFO Clipping check for HL.KSL..HHZ | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: True
+2026-06-13 13:53:28,912 INFO Mouse check for HL.VLS..HHN | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.370000Z | 10.0 Hz, 4210 samples passed: False
+2026-06-13 13:53:28,954 INFO Mouse check for CQ.MVOU..HHZ | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.370000Z | 10.0 Hz, 4210 samples passed: True
+2026-06-13 13:53:28,977 INFO Clipping check for HL.VLI..HHZ | 2020-10-30T11:51:14.475000Z - 2020-10-30T11:58:15.465000Z | 100.0 Hz, 42100 samples passed: False
+2026-06-13 13:53:28,991 INFO Mouse check for HP.LTK..HHZ | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.370000Z | 10.0 Hz, 4210 samples passed: True
+2026-06-13 13:53:29,063 INFO Clipping check for HL.ZKR..HHE | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: True
+2026-06-13 13:53:29,070 INFO Clipping check for CQ.AKMS..HHN | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: True
+2026-06-13 13:53:29,088 INFO Clipping check for HL.KSL..HHN | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: False
+2026-06-13 13:53:29,114 INFO Mouse check for HL.SMTH..HHE | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.370000Z | 10.0 Hz, 4210 samples passed: True
+2026-06-13 13:53:29,115 INFO Mouse check for HL.KZN..HHE | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.370000Z | 10.0 Hz, 4210 samples passed: True
+2026-06-13 13:53:29,128 INFO Clipping check for HL.VLI..HHN | 2020-10-30T11:51:14.474999Z - 2020-10-30T11:58:15.464999Z | 100.0 Hz, 42100 samples passed: False
+2026-06-13 13:53:29,156 INFO Mouse check for HL.VLS..HHE | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.370000Z | 10.0 Hz, 4210 samples passed: True
+2026-06-13 13:53:29,171 INFO Mouse check for HL.ITM..HHZ | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.370000Z | 10.0 Hz, 4210 samples passed: True
+2026-06-13 13:53:29,210 INFO Mouse check for CQ.MVOU..HHN | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.370000Z | 10.0 Hz, 4210 samples passed: True
+2026-06-13 13:53:29,268 INFO Mouse check for HL.GVD..HHE | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.370000Z | 10.0 Hz, 4210 samples passed: True
+2026-06-13 13:53:29,288 INFO Mouse check for HP.LTK..HHE | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.370000Z | 10.0 Hz, 4210 samples passed: True
+2026-06-13 13:53:29,329 INFO Clipping check for HL.VLI..HHE | 2020-10-30T11:51:14.474999Z - 2020-10-30T11:58:15.464999Z | 100.0 Hz, 42100 samples passed: False
+2026-06-13 13:53:29,337 INFO Clipping check for CQ.AKMS..HHE | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: True
+2026-06-13 13:53:29,360 INFO Clipping check for HL.KSL..HHE | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 42100 samples passed: True
+2026-06-13 13:53:29,393 INFO Mouse check for HL.ITM..HHN | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.370000Z | 10.0 Hz, 4210 samples passed: True
+2026-06-13 13:53:29,393 INFO Mouse check for CQ.MVOU..HHE | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.370000Z | 10.0 Hz, 4210 samples passed: True
+2026-06-13 13:53:29,395 INFO Mouse check for HL.ZKR..HHZ | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.370000Z | 10.0 Hz, 4210 samples passed: True
+2026-06-13 13:53:30,141 INFO Mouse check for HL.KSL..HHZ | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.370000Z | 10.0 Hz, 4210 samples passed: True
+2026-06-13 13:53:30,170 INFO Mouse check for HL.ITM..HHE | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.370000Z | 10.0 Hz, 4210 samples passed: True
+2026-06-13 13:53:30,170 INFO Mouse check for CQ.AKMS..HHN | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.370000Z | 10.0 Hz, 4210 samples passed: False
+2026-06-13 13:53:30,181 INFO Mouse check for HL.ZKR..HHN | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.370000Z | 10.0 Hz, 4210 samples passed: True
+2026-06-13 13:53:30,287 INFO Mouse check for HL.KSL..HHE | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.370000Z | 10.0 Hz, 4210 samples passed: True
+2026-06-13 13:53:30,316 INFO Mouse check for CQ.AKMS..HHE | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.370000Z | 10.0 Hz, 4210 samples passed: True
+2026-06-13 13:53:30,375 INFO Mouse check for HL.ZKR..HHE | 2020-10-30T11:51:14.470000Z - 2020-10-30T11:58:15.370000Z | 10.0 Hz, 4210 samples passed: True
+2026-06-13 13:53:30,681 INFO 47 Trace(s) in Stream:
+CQ.AKMS..HHE | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+CQ.ASGA..HHE | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+CQ.ASGA..HHN | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+CQ.ATHA..HHE | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+CQ.ATHA..HHZ | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+CQ.MVOU..HHE | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+CQ.MVOU..HHN | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+CQ.MVOU..HHZ | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.ATH..HHE  | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.ATH..HHN  | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.GVD..HHE  | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.ITM..HHE  | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.ITM..HHN  | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.ITM..HHZ  | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.JAN..HHE  | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.JAN..HHN  | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.KARP..HHE | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.KARP..HHN | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.KARP..HHZ | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.KEK..HHE  | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.KEK..HHZ  | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.KLV..HHE  | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.KLV..HHN  | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.KLV..HHZ  | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.KSL..HHE  | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.KSL..HHZ  | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.KTHA..HHN | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.KTHA..HHZ | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.KZN..HHE  | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.KZN..HHZ  | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.LIA..HHE  | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.LIA..HHN  | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.LIA..HHZ  | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.NPS..HHN  | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.NVR..HHN  | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.NVR..HHZ  | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.SMTH..HHE | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.THL..HHE  | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.THL..HHZ  | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.VLS..HHE  | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.ZKR..HHE  | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.ZKR..HHN  | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.ZKR..HHZ  | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HP.LTK..HHE  | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HP.LTK..HHZ  | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HP.PDO..HHE  | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HP.PDO..HHZ  | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+2026-06-13 13:53:30,682 INFO Function 'inner' executed 5.42 seconds
+2026-06-13 13:53:30,683 INFO Selecting subset of streams based on Azimuthal Coverage and Rules
+2026-06-13 13:53:30,692 INFO Sector [0,45): []
+2026-06-13 13:53:30,693 INFO Sector [45,90): []
+2026-06-13 13:53:30,694 INFO Sector [90,135): [('MVOU', 1, 'VEL', 3, -689407.9605809986), ('KSL', 1, 'VEL', 2, -313681.3750425131)]
+2026-06-13 13:53:30,694 INFO Sector [135,180): [('KARP', 1, 'VEL', 3, -262921.7750089713)]
+2026-06-13 13:53:30,695 INFO Sector [180,225): [('ZKR', 1, 'VEL', 3, -313723.1958064273), ('NPS', 1, 'VEL', 1, -312081.9103041935)]
+2026-06-13 13:53:30,695 INFO Sector [225,270): [('ITM', 1, 'VEL', 3, -439600.4770883619), ('KTHA', 1, 'VEL', 2, -380387.95210435655)]
+2026-06-13 13:53:30,696 INFO Sector [270,315): [('KLV', 1, 'VEL', 3, -410276.266256737), ('ATH', 1, 'VEL', 2, -272539.6389893973)]
+2026-06-13 13:53:30,696 INFO Sector [315,360): [('LIA', 1, 'VEL', 3, -263241.0262771224), ('NVR', 1, 'VEL', 2, -459065.8117174707)]
+2026-06-13 13:53:30,701 INFO 27 Trace(s) in Stream:
+CQ.MVOU..HHE | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+CQ.MVOU..HHN | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+CQ.MVOU..HHZ | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.ATH..HHE  | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.ATH..HHN  | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.ITM..HHE  | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.ITM..HHN  | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.ITM..HHZ  | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.KARP..HHE | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.KARP..HHN | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.KARP..HHZ | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.KLV..HHE  | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.KLV..HHN  | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.KLV..HHZ  | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.KSL..HHE  | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.KSL..HHZ  | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.KTHA..HHN | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.KTHA..HHZ | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.LIA..HHE  | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.LIA..HHN  | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.LIA..HHZ  | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.NPS..HHN  | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.NVR..HHN  | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.NVR..HHZ  | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.ZKR..HHE  | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.ZKR..HHN  | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.ZKR..HHZ  | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+2026-06-13 13:53:30,702 INFO Function 'inner' executed 0.02 seconds
+2026-06-13 13:53:30,703 INFO Saving corrected waveforms in one mseed file in ../test/results/2020/noa2020vipzs/2026-06-13T13:53:21.646677Z/streams_corrected.mseed
+2026-06-13 13:53:30,973 INFO 27 Trace(s) in Stream:
+CQ.MVOU..HHE | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+CQ.MVOU..HHN | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+CQ.MVOU..HHZ | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.ATH..HHE  | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.ATH..HHN  | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.ITM..HHE  | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.ITM..HHN  | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.ITM..HHZ  | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.KARP..HHE | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.KARP..HHN | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.KARP..HHZ | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.KLV..HHE  | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.KLV..HHN  | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.KLV..HHZ  | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.KSL..HHE  | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.KSL..HHZ  | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.KTHA..HHN | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.KTHA..HHZ | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.LIA..HHE  | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.LIA..HHN  | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.LIA..HHZ  | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.NPS..HHN  | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.NVR..HHN  | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.NVR..HHZ  | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.ZKR..HHE  | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.ZKR..HHN  | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+HL.ZKR..HHZ  | 2020-10-30T11:51:24.460000Z - 2020-10-30T11:58:15.460000Z | 100.0 Hz, 41101 samples
+2026-06-13 13:53:30,973 INFO Function 'inner' executed 0.27 seconds
+2026-06-13 13:53:30,974 INFO Creating sources files based on Grid rules
+2026-06-13 13:53:30,974 INFO - Depth:
+  - - 0
+    - 31
+    - 2
+  Distance:
+  - - 0
+    - 31
+    - 5
+  Rule:
+  - 6.6
+  - 9.0
+
+2026-06-13 13:53:31,063 INFO Grid index: 0
+Calculated source points: 3549
+Dispatched in 36 source file(s)
+2026-06-13 13:53:31,064 INFO Selecting crustal model files based on Crustal rules
+2026-06-13 13:53:31,064 INFO - Filepath: crustals/novotny.vz
+  Geobox: null
+
+2026-06-13 13:53:31,065 INFO Crustal model Index: 0
+Copying crustal file: crustals/novotny.vz to ../test/results/2020/noa2020vipzs/2026-06-13T13:53:21.646677Z/crustals directory
+2026-06-13 13:53:31,073 INFO Creating Greens' Functions configuration files (grdat.hed)
+2026-06-13 13:53:31,076 INFO Greens' Functions configuration index: 0
+2026-06-13 13:53:31,076 INFO Creating Stations file (station.dat)
+2026-06-13 13:53:31,085 INFO Performing Greens' Functions Computation
+2026-06-13 13:53:37,435 INFO None
+2026-06-13 13:53:37,436 INFO  running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+          14
+          16
+          13
+          10
+           2
+           1
+           9
+          15
+          11
+          12
+           4
+           6
+           5
+           8
+           7
+           3
+          18
+          17
+          25
+          30
+          26
+          29
+          19
+          21
+          24
+          31
+          20
+          27
+          23
+          28
+          22
+ Done
+
+2026-06-13 13:53:43,700 INFO None
+2026-06-13 13:53:43,700 INFO  running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+          14
+           1
+          10
+          16
+           9
+           2
+          11
+          15
+           8
+          12
+           4
+          13
+           5
+           6
+           7
+           3
+          18
+          17
+          25
+          26
+          30
+          28
+          20
+          21
+          31
+          24
+          22
+          23
+          27
+          29
+          19
+ Done
+
+2026-06-13 13:53:44,414 INFO None
+2026-06-13 13:53:44,414 INFO  running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+          13
+          12
+          14
+          10
+          15
+          11
+           8
+           9
+          16
+           7
+           6
+           4
+           5
+           3
+           2
+           1
+          30
+          19
+          18
+          31
+          29
+          26
+          17
+          28
+          20
+          27
+          25
+          21
+          24
+          22
+          23
+ Done
+
+2026-06-13 13:53:45,008 INFO None
+2026-06-13 13:53:45,008 INFO  running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+          13
+          15
+          12
+          14
+          11
+          16
+          10
+           9
+           7
+           8
+           6
+           5
+           4
+           3
+           2
+           1
+          19
+          28
+          29
+          27
+          24
+          31
+          17
+          25
+          26
+          30
+          18
+          20
+          23
+          22
+          21
+ Done
+
+2026-06-13 13:53:45,569 INFO None
+2026-06-13 13:53:45,569 INFO  running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+          15
+          13
+          14
+          16
+          12
+          10
+          11
+           8
+           9
+           7
+           6
+           5
+           4
+           3
+           2
+           1
+          26
+          27
+          29
+          23
+          25
+          22
+          17
+          28
+          24
+          19
+          20
+          21
+          30
+          18
+          31
+ Done
+
+2026-06-13 13:53:46,068 INFO None
+2026-06-13 13:53:46,068 INFO  running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+          13
+          15
+          14
+          16
+          12
+          10
+          11
+           8
+           9
+           7
+           6
+           5
+           4
+           3
+           2
+           1
+          25
+          24
+          20
+          18
+          17
+          19
+          27
+          22
+          21
+          30
+          28
+          26
+          29
+          23
+          31
+ Done
+
+2026-06-13 13:53:46,549 INFO None
+2026-06-13 13:53:46,549 INFO  running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+          15
+          13
+          14
+          16
+          10
+          12
+          11
+           8
+           9
+           7
+           6
+           5
+           4
+           3
+           2
+           1
+          29
+          26
+          21
+          25
+          30
+          24
+          23
+          19
+          17
+          18
+          20
+          28
+          27
+          31
+          22
+ Done
+
+2026-06-13 13:53:47,026 INFO None
+2026-06-13 13:53:47,026 INFO  running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+          15
+          13
+          16
+          14
+          10
+          12
+          11
+           8
+           7
+           9
+           6
+           5
+           4
+           3
+           2
+           1
+          27
+          22
+          20
+          17
+          18
+          19
+          28
+          26
+          30
+          23
+          24
+          21
+          25
+          31
+          29
+ Done
+
+2026-06-13 13:53:47,441 INFO None
+2026-06-13 13:53:47,442 INFO  running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+          15
+          16
+          13
+          14
+          10
+          12
+          11
+           8
+           7
+           9
+           6
+           5
+           4
+           3
+           2
+           1
+          25
+          21
+          17
+          20
+          19
+          18
+          22
+          28
+          23
+          30
+          26
+          29
+          27
+          24
+          31
+ Done
+
+2026-06-13 13:53:47,832 INFO None
+2026-06-13 13:53:47,833 INFO  running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+          16
+          15
+          14
+          13
+          10
+          12
+           8
+          11
+           9
+           7
+           6
+           5
+           4
+           3
+           2
+           1
+          25
+          21
+          18
+          29
+          22
+          26
+          19
+          31
+          20
+          24
+          27
+          23
+          28
+          17
+          30
+ Done
+
+2026-06-13 13:53:48,222 INFO None
+2026-06-13 13:53:48,223 INFO  running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+          16
+          15
+          13
+          14
+          10
+          12
+           8
+          11
+           9
+           7
+           6
+           5
+           4
+           3
+           2
+           1
+          26
+          25
+          23
+          22
+          19
+          18
+          29
+          27
+          31
+          30
+          24
+          20
+          21
+          17
+          28
+ Done
+
+2026-06-13 13:53:48,597 INFO None
+2026-06-13 13:53:48,597 INFO  running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+          15
+          14
+          16
+          13
+          10
+          12
+          11
+           9
+           8
+           7
+           6
+           5
+           4
+           3
+           2
+           1
+          26
+          24
+          20
+          17
+          18
+          19
+          29
+          23
+          31
+          21
+          25
+          27
+          22
+          28
+          30
+ Done
+
+2026-06-13 13:53:51,437 INFO None
+2026-06-13 13:53:51,437 INFO  running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+          13
+           9
+           8
+           7
+           6
+          14
+           1
+          11
+          10
+          16
+           2
+          12
+          15
+           3
+           4
+           5
+          18
+          17
+          24
+          29
+          23
+          25
+          22
+          19
+          26
+          30
+          27
+          20
+          21
+          28
+          31
+ Done
+
+2026-06-13 13:53:51,799 INFO None
+2026-06-13 13:53:51,799 INFO  running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+          16
+          15
+          14
+          13
+          10
+          12
+           9
+          11
+           8
+           7
+           6
+           5
+           4
+           3
+           2
+           1
+          23
+          30
+          20
+          26
+          18
+          24
+          22
+          28
+          19
+          29
+          27
+          21
+          17
+          25
+          31
+ Done
+
+2026-06-13 13:53:52,168 INFO None
+2026-06-13 13:53:52,168 INFO  running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+          16
+          14
+          13
+          15
+          12
+          10
+           9
+          11
+           8
+           7
+           6
+           5
+           4
+           3
+           2
+           1
+          22
+          19
+          18
+          20
+          17
+          25
+          21
+          23
+          30
+          31
+          27
+          26
+          24
+          29
+          28
+ Done
+
+2026-06-13 13:53:52,519 INFO None
+2026-06-13 13:53:52,519 INFO  running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+          14
+          16
+          15
+          13
+          12
+          11
+           9
+          10
+           8
+           7
+           6
+           5
+           4
+           3
+           2
+           1
+          23
+          20
+          21
+          18
+          19
+          28
+          24
+          22
+          30
+          25
+          31
+          27
+          26
+          29
+          17
+ Done
+
+2026-06-13 13:53:52,838 INFO None
+2026-06-13 13:53:52,838 INFO  running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+          16
+          14
+          13
+          15
+          12
+           9
+          11
+           8
+           7
+          10
+           6
+           5
+           4
+           3
+           2
+           1
+          22
+          20
+          18
+          19
+          17
+          21
+          23
+          26
+          24
+          28
+          27
+          25
+          30
+          31
+          29
+ Done
+
+2026-06-13 13:53:53,171 INFO None
+2026-06-13 13:53:53,171 INFO  running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+          16
+          14
+          15
+          13
+          12
+          11
+           9
+           8
+          10
+           7
+           6
+           5
+           4
+           3
+           2
+           1
+          20
+          19
+          17
+          22
+          18
+          21
+          24
+          23
+          25
+          27
+          26
+          28
+          30
+          29
+          31
+ Done
+
+2026-06-13 13:53:53,490 INFO None
+2026-06-13 13:53:53,490 INFO  running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+          16
+          13
+          14
+          15
+          12
+           9
+          11
+           8
+          10
+           7
+           6
+           5
+           4
+           3
+           2
+           1
+          17
+          20
+          18
+          21
+          19
+          24
+          26
+          23
+          28
+          22
+          27
+          25
+          29
+          30
+          31
+ Done
+
+2026-06-13 13:53:53,829 INFO None
+2026-06-13 13:53:53,830 INFO  running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+          14
+          13
+          15
+          16
+          12
+          11
+          10
+           8
+           9
+           7
+           6
+           5
+           4
+           3
+           2
+           1
+          17
+          24
+          21
+          19
+          22
+          25
+          26
+          20
+          27
+          18
+          28
+          23
+          29
+          30
+          31
+ Done
+
+2026-06-13 13:53:54,155 INFO None
+2026-06-13 13:53:54,155 INFO  running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+          14
+          13
+          16
+          15
+          11
+          12
+          10
+           9
+           8
+           7
+           6
+           5
+           4
+           3
+           2
+           1
+          22
+          18
+          17
+          20
+          23
+          21
+          24
+          26
+          19
+          28
+          29
+          25
+          27
+          30
+          31
+ Done
+
+2026-06-13 13:53:54,457 INFO None
+2026-06-13 13:53:54,458 INFO  running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+          14
+          15
+          16
+          13
+          10
+           9
+           8
+           7
+          12
+          11
+           6
+           5
+           4
+           3
+           2
+           1
+          21
+          24
+          23
+          18
+          20
+          19
+          25
+          22
+          27
+          28
+          26
+          17
+          30
+          31
+          29
+ Done
+
+2026-06-13 13:53:54,753 INFO None
+2026-06-13 13:53:54,753 INFO  running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+          14
+          13
+          16
+          15
+          10
+          12
+           9
+           8
+           7
+           6
+           5
+           4
+          11
+           3
+           2
+           1
+          21
+          19
+          20
+          26
+          18
+          17
+          29
+          23
+          25
+          22
+          30
+          27
+          28
+          24
+          31
+ Done
+
+2026-06-13 13:53:57,465 INFO None
+2026-06-13 13:53:57,466 INFO  running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+          11
+          14
+           9
+           8
+           1
+           6
+          16
+          12
+           2
+          15
+           5
+          10
+          13
+           3
+           7
+           4
+          17
+          18
+          19
+          22
+          23
+          27
+          31
+          29
+          20
+          28
+          24
+          30
+          21
+          26
+          25
+ Done
+
+2026-06-13 13:53:57,758 INFO None
+2026-06-13 13:53:57,758 INFO  running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+          13
+          14
+          15
+          16
+          10
+          12
+           9
+           7
+           6
+           5
+           4
+           8
+          11
+           3
+           2
+           1
+          21
+          19
+          22
+          20
+          24
+          28
+          18
+          17
+          27
+          23
+          26
+          25
+          30
+          29
+          31
+ Done
+
+2026-06-13 13:53:58,024 INFO None
+2026-06-13 13:53:58,024 INFO  running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+          13
+          14
+          15
+          16
+          10
+          12
+           9
+          11
+           7
+           6
+           5
+           4
+           3
+           8
+           2
+           1
+          19
+          20
+          18
+          17
+          25
+          22
+          29
+          21
+          23
+          26
+          24
+          27
+          28
+          31
+          30
+ Done
+
+2026-06-13 13:53:58,295 INFO None
+2026-06-13 13:53:58,295 INFO  running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+          13
+          14
+          16
+          15
+          12
+           9
+          11
+          10
+           8
+           7
+           6
+           5
+           4
+           3
+           2
+           1
+          21
+          20
+          17
+          18
+          24
+          22
+          23
+          26
+          19
+          27
+          25
+          28
+          29
+          31
+          30
+ Done
+
+2026-06-13 13:53:58,567 INFO None
+2026-06-13 13:53:58,567 INFO  running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+          13
+          14
+          15
+          16
+          12
+          11
+           8
+           9
+          10
+           7
+           6
+           5
+           4
+           3
+           2
+           1
+          17
+          20
+          19
+          18
+          21
+          23
+          25
+          22
+          26
+          24
+          27
+          28
+          31
+          29
+          30
+ Done
+
+2026-06-13 13:53:58,860 INFO None
+2026-06-13 13:53:58,861 INFO  running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+          13
+          14
+          15
+          10
+          12
+          16
+           9
+          11
+           8
+           7
+           6
+           5
+           4
+           3
+           2
+           1
+          17
+          22
+          18
+          21
+          19
+          24
+          20
+          25
+          23
+          27
+          26
+          28
+          29
+          30
+          31
+ Done
+
+2026-06-13 13:53:59,013 INFO None
+2026-06-13 13:53:59,013 INFO  running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+          13
+          14
+          12
+          10
+           9
+          11
+           8
+          15
+           7
+           6
+           5
+          16
+           4
+           3
+           2
+           1
+          17
+          21
+          18
+          22
+          23
+          25
+          24
+          20
+          26
+          29
+          19
+          27
+          30
+          31
+          28
+ Done
+
+2026-06-13 13:54:00,786 INFO None
+2026-06-13 13:54:00,786 INFO  running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+          16
+          14
+          13
+           7
+          10
+          12
+          11
+           8
+           9
+          15
+           6
+           5
+           2
+           1
+           3
+           4
+          30
+          18
+          26
+          25
+          20
+          23
+          29
+          28
+          17
+          27
+          24
+          31
+          22
+          19
+          21
+ Done
+
+2026-06-13 13:54:03,043 INFO None
+2026-06-13 13:54:03,044 INFO  running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+          16
+          15
+          13
+           6
+           4
+          11
+           9
+           3
+           7
+          12
+          14
+           5
+          10
+           8
+           1
+           2
+          31
+          29
+          26
+          27
+          17
+          22
+          19
+          25
+          20
+          18
+          30
+          24
+          23
+          21
+          28
+ Done
+
+2026-06-13 13:54:04,260 INFO None
+2026-06-13 13:54:04,260 INFO  running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+          14
+          16
+          13
+          12
+          15
+           8
+           9
+          10
+           6
+          11
+           7
+           5
+           4
+           1
+           3
+           2
+          25
+          24
+          30
+          22
+          29
+          23
+          27
+          21
+          26
+          28
+          18
+          31
+          20
+          17
+          19
+ Done
+
+2026-06-13 13:54:05,195 INFO None
+2026-06-13 13:54:05,196 INFO  running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+          16
+          11
+           9
+           8
+          13
+          15
+          12
+           6
+          14
+          10
+           4
+           7
+           5
+           3
+           1
+           2
+          17
+          22
+          20
+          24
+          27
+          25
+          19
+          23
+          29
+          26
+          30
+          21
+          18
+          28
+          31
+ Done
+
+2026-06-13 13:54:06,084 INFO None
+2026-06-13 13:54:06,085 INFO  running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+          15
+          14
+          13
+          11
+          16
+           9
+          12
+           6
+           8
+           7
+          10
+           4
+           5
+           3
+           1
+           2
+          20
+          29
+          17
+          30
+          31
+          22
+          27
+          18
+          21
+          19
+          23
+          28
+          25
+          24
+          26
+ Done
+
+2026-06-13 13:54:06,822 INFO None
+2026-06-13 13:54:06,823 INFO  running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+ running openMp on           16  threads
+          15
+          13
+          12
+          11
+          14
+          10
+          16
+           9
+           8
+           7
+           6
+           5
+           4
+           3
+           2
+           1
+          30
+          31
+          29
+          25
+          28
+          19
+          18
+          27
+          17
+          22
+          24
+          26
+          20
+          21
+          23
+ Done
+
+2026-06-13 13:54:06,823 INFO Function 'calculateGreens' executed 35.74 seconds
+2026-06-13 13:54:06,823 INFO Creating Inversions configuration files (inpinv) based on Time-shift rules
+2026-06-13 13:54:06,824 INFO - - -10
+  - 2
+  - 43
+
+2026-06-13 13:54:06,829 INFO Select Stations for inversion (allstat)
+2026-06-13 13:54:06,867 INFO Creating raw data files for ISOLA parsing
+2026-06-13 13:54:07,181 INFO Calculating inversions
+2026-06-13 13:54:16,533 INFO Function 'calculateInversions2' executed 9.35 seconds
+2026-06-13 13:54:18,814 INFO exportResults: event.xml, solutions, correlations written
+2026-06-13 13:54:18,816 INFO Function 'exportResults' executed 2.28 seconds
+2026-06-13 13:54:18,868 INFO Bootstrap CMT (from inversion): X=-5.0 Y=-15.0 Z=7.8
+2026-06-13 13:54:38,276 INFO Bootstrap stats stored; renderSite() will embed them in index.html
+2026-06-13 13:54:38,279 INFO Function 'getBootstrapping' executed 19.46 seconds
+2026-06-13 13:54:49,847 INFO 'IsotropicGeoboxes' not defined or empty. Using default Keyinv: 2 (deviatoric).
+2026-06-13 13:54:50,253 INFO renderSite: index.html written in ../test/results/2020/noa2020vipzs/2026-06-13T13:53:21.646677Z/output
+2026-06-13 13:54:50,253 INFO Function 'renderSite' executed 11.97 seconds
