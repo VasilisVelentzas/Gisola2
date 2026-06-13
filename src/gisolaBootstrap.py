@@ -114,19 +114,23 @@ if _compute_device == 'GPU':
     except Exception:
         _gpu_ok = False
     if _gpu_ok:
-        isola2._USE_GPU = True
-        print('[INFO] Compute device : GPU', flush=True)
         _t_wu = time.time()
-        import numpy as _np
-        _rng = _np.random.default_rng(0)
-        _G_wu  = _rng.random((4, 1024*2, 5), dtype=_np.float64)
-        _ob_wu = _rng.random(1024*2,          dtype=_np.float64)
-        _sh_wu = _np.array([0], dtype=_np.int64)
-        _W_wu  = _rng.random(1024*2,          dtype=_np.float64)
-        _Co_wu = _rng.random((4, 3),           dtype=_np.float64)
-        isola2.compute_inversion_numbaGpu(_G_wu, _ob_wu, 0.1, _sh_wu, 2)
-        isola2._bootstrap_gpu_loop(_G_wu, _ob_wu, _W_wu[_np.newaxis, :], 0.1, _sh_wu, _Co_wu)
-        print('[INFO] GPU warmup                  : {:7.2f} s'.format(time.time() - _t_wu), flush=True)
+        try:
+            import numpy as _np
+            _rng = _np.random.default_rng(0)
+            _G_wu  = _rng.random((4, 1024*2, 5), dtype=_np.float64)
+            _ob_wu = _rng.random(1024*2,          dtype=_np.float64)
+            _sh_wu = _np.array([0], dtype=_np.int64)
+            _W_wu  = _rng.random(1024*2,          dtype=_np.float64)
+            _Co_wu = _rng.random((4, 3),           dtype=_np.float64)
+            isola2.compute_inversion_numbaGpu(_G_wu, _ob_wu, 0.1, _sh_wu, 2)
+            isola2._bootstrap_gpu_loop(_G_wu, _ob_wu, _W_wu[_np.newaxis, :], 0.1, _sh_wu, _Co_wu)
+            isola2._USE_GPU = True
+            print('[INFO] Compute device : GPU', flush=True)
+            print('[INFO] GPU warmup                  : {:7.2f} s'.format(time.time() - _t_wu), flush=True)
+        except Exception as _e:
+            print('[INFO] GPU requested but kernel compilation failed — using CPU', flush=True)
+            print('[INFO] Hint: install CUDA libraries (see install.sh) — {}'.format(_e), flush=True)
     else:
         print('[INFO] GPU requested but no CUDA device found — using CPU', flush=True)
 else:
