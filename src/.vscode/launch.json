@@ -1,0 +1,19 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug gisola.py",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/gisola.py",
+            "console": "integratedTerminal",
+            "python": "/home/vasilis/miniconda3/envs/gisola/bin/python",
+            "args": [
+                "-c",
+                "../test/config.yaml",
+                "--event-xml",
+                "../test/benchmark/event.xml"
+            ]
+        }
+    ]
+}
