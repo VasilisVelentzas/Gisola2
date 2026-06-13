@@ -1,9 +1,0 @@
-&input
-nfreq=31
-tl=409.6
-aw=1.0
-xl=14000000
-ikmax=100000
-uconv=0.1E-03
-fref=1.
-/end
